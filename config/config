@@ -1,0 +1,54 @@
+[global_config]
+  title_transmit_bg_color = "#2777ff"
+  title_receive_bg_color = "#d41919"
+  title_inactive_fg_color = "#ffffff"
+  title_inactive_bg_color = "#23252e"
+  inactive_color_offset = 0.7682926829268293
+  title_font = Hack Nerd Font 14
+[keybindings]
+  zoom_in = <Primary>KP_Add
+  zoom_out = <Primary>KP_Subtract
+  go_up = <Super>i
+  go_down = <Super>k
+  go_left = <Super>j
+  go_right = <Super>l
+  split_horiz = <Super>o
+  split_vert = <Super>p
+  close_term = <Primary>w
+  copy = <Primary><Shift>c
+  paste = <Primary><Shift>v
+  page_up_half = <Primary><Shift>Up
+  page_down_half = <Primary><Shift>Down
+  resize_up = <Alt>i
+  resize_down = <Alt>k
+  resize_left = <Alt>j
+  resize_right = <Alt>l
+  move_tab_right = ""
+  move_tab_left = ""
+  new_terminator = <Alt>Up
+  layout_launcher = ""
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_darkness = 0.85
+    background_type = transparent
+    cursor_blink = False
+    cursor_shape = ibeam
+    cursor_color = "#aaaaaa"
+    cursor_color_fg = False
+    font = Hack Nerd Font Mono 12
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 2000
+    palette = "#1f2229:#d41919:#5ebdab:#fea44c:#367bf0:#9755b3:#49aee6:#e6e6e6:#198388:#ec0101:#47d4b9:#ff8a18:#277fff:#962ac3:#05a1f7:#ffffff"
+    use_system_font = False
+    use_theme_colors = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
