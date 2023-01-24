@@ -150,11 +150,9 @@ function p10k(){
 	cd /usr/share 
     sudo chown $username:$username -R zsh-*
     
-    echo -e "\n${redColor}[+] Proceed to configure your powerlevel10k user.${endColor}"
-    echo -e "\n${redColor}[+] After that, write \"exit\".${endColor}" && read
+    echo -e "\n${redColor}[+] Proceed to logout and select bspwn.${endColor}"
+    echo -e "\n${redColor}[+] After that, configure your powerlevel10k.${endColor}" && read
     
-    #zsh
-    #sudo zsh
 }
 
 function config(){
