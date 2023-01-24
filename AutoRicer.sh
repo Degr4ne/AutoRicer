@@ -34,10 +34,10 @@ function dependencies(){
     echo -e "\n${grayColor}[+] Upgrading the Kali Linux system.${endColor}" && sleep 0.5
     sudo apt upgrade -y
     echo -e "\n${grayColor}[+] Installing dependencies.${endColor}" && sleep 0.5
-    sudo apt install build-essential git xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev libuv1.dev -y
-    sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y
-    sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev -y
-    sudo apt install terminator feh bspwm flameshot rofi acpi wmname lxsession -y
+    sudo apt-get install build-essential git xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev libuv1.dev -y
+    sudo apt-get install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y
+    sudo apt-get install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev libpcre3-dev -y
+    sudo apt install terminator feh bspwm flameshot rofi acpi wmname lxsession xclip -y
 }
 
 function bspwm_sxhkd(){
@@ -113,6 +113,14 @@ function font(){
 	sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -O /usr/local/share/fonts/JetBrainsMono.zip
 	sudo unzip /usr/local/share/fonts/JetBrainsMono.zip -d /usr/local/share/fonts/
     sudo rm /usr/local/share/fonts/JetBrainsMono.zip
+    
+    echo -e "\n${grayColor}[+] Installing Iosevka Nerd Font.${endColor}" && sleep 0.5
+	sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.2/Iosevka.zip
+	sudo unzip /usr/local/share/fonts/Iosevka.zip -d /usr/local/share/fonts/
+    sudo rm /usr/local/share/fonts/Iosevka.zip
+
+    
+
 }
 
 function p10k(){
@@ -145,8 +153,8 @@ function p10k(){
     echo -e "\n${redColor}[+] Proceed to configure your powerlevel10k user.${endColor}"
     echo -e "\n${redColor}[+] After that, write \"exit\".${endColor}" && read
     
-    zsh
-    sudo zsh
+    #zsh
+    #sudo zsh
 }
 
 function config(){
@@ -157,9 +165,12 @@ function config(){
     cp $configFiles"/config" ~/.config/terminator/
     
     # rofi theme
+    sudo cp $configFiles"/murz.rasi" /usr/share/rofi/themes/murz.rasi 
     mkdir -p ~/.config/rofi
-    touch ~/.config/rofi/config
-    echo "rofi.theme: /usr/share/rofi/themes/solarized.rasi" >> ~/.config/rofi/config
+    #touch ~/.config/rofi/config
+    #echo "rofi.theme: /usr/share/rofi/themes/murz.rasi" >> ~/.config/rofi/config
+    touch ~/.config/rofi/config.rasi
+    echo "@theme: \"/usr/share/rofi/themes/murz.rasi\"" >> ~/.config/rofi/config.rasi
     
     # vim color scheme
     cp $configFiles"/.vimrc" ~/
