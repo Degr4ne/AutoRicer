@@ -8,7 +8,7 @@ The script is tested in Kali Linux 2022.4.  **Don't run as root**
 You can make some changes to the script if you want the default configuration.
 
 ## Thanks to
-[Murzchnvok](https://github.com/Murzchnvok/polybar-collection) for making that awesome polybar and rofi themes, my favorite are the Murz themes.
+[Murzchnvok](https://github.com/Murzchnvok/polybar-collection) for making those awesome polybar and rofi themes, my favorite are the Murz themes.
 
 ![Desktop](https://user-images.githubusercontent.com/87916626/130697625-d78149db-8eea-4f4d-b3f4-fbfd3b281e83.png)
  
