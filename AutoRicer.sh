@@ -97,9 +97,8 @@ function polybar(){
 
     font
     
-    # coping polybar murz theme to ~/.config/polybar
-    # https://github.com/Murzchnvok/polybar-collection for more awesome themes
     cd ~/.config/polybar
+    # https://github.com/Murzchnvok/polybar-collection for more awesome themes
     cp -r $configFiles"/murz" .
     chmod +x murz/{hackthebox.sh,ipmachine.sh,launch.sh,targetmachine.sh} 
 }
@@ -117,7 +116,7 @@ function font(){
     sudo rm /usr/local/share/fonts/JetBrainsMono.zip
     
     echo -e "\n${grayColor}[+] Installing Iosevka Nerd Font.${endColor}" && sleep 0.5
-	sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.2/Iosevka.zip
+	sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.2/Iosevka.zip -O /usr/local/share/fonts/Iosevka.zip
 	sudo unzip /usr/local/share/fonts/Iosevka.zip -d /usr/local/share/fonts/
     sudo rm /usr/local/share/fonts/Iosevka.zip
 
@@ -165,8 +164,6 @@ function config(){
     # rofi theme
     sudo cp $configFiles"/murz.rasi" /usr/share/rofi/themes/murz.rasi 
     mkdir -p ~/.config/rofi
-    #touch ~/.config/rofi/config
-    #echo "rofi.theme: /usr/share/rofi/themes/murz.rasi" >> ~/.config/rofi/config
     touch ~/.config/rofi/config.rasi
     echo "@theme: \"/usr/share/rofi/themes/murz.rasi\"" >> ~/.config/rofi/config.rasi
     
