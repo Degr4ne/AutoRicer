@@ -33,10 +33,12 @@ function dependencies(){
     sudo apt update
     echo -e "\n${grayColor}[+] Upgrading the Kali Linux system.${endColor}" && sleep 0.5
     sudo apt upgrade -y
-    echo -e "\n${grayColor}[+] Installing dependencies.${endColor}" && sleep 0.5
-    sudo apt-get install build-essential git xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev libuv1.dev -y
-    sudo apt-get install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y
-    sudo apt-get install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev libpcre3-dev -y
+    echo -e "\n${grayColor}[+] Installing bspwm's dependencies.${endColor}" && sleep 0.5
+    sudo apt install build-essential git vim libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev libuv1.dev -y
+    echo -e "\n${grayColor}[+] Installing polybar's dependencies.${endColor}" && sleep 0.5
+    sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y
+    echo -e "\n${grayColor}[+] Installing picom's dependencies.${endColor}" && sleep 0.5
+    sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libpcre3-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev -y
     sudo apt install terminator feh bspwm flameshot rofi acpi wmname lxsession xclip -y
 }
 
@@ -128,11 +130,10 @@ function p10k(){
     echo -e "\n${grayColor}[+] Installing Powerevel10k.${endColor}" && sleep 0.5
     username=$(whoami)
     
-    cp $configFiles"/.zshrc" ~/
-    sudo chown $username:$username /home/$username/.zshrc
-    
-    sudo rm -f /root/.zshrc
-    sudo ln -s -f /home/$username/.zshrc /root/.zshrc
+    cp -v $configFiles"/.zshrc" ~/
+    sudo ln -sfv ~/.zshrc /root/.zshrc
+    cp -v $dir/.p10k.zsh ~/.p10k.zsh
+    sudo ln -sfv ~/.p10k.zsh /root/.p10k.zsh
 
     cd ~
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/powerlevel10k
@@ -150,8 +151,7 @@ function p10k(){
 	cd /usr/share 
     sudo chown $username:$username -R zsh-*
     
-    echo -e "\n${redColor}[+] Proceed to logout and select bspwn.${endColor}"
-    echo -e "\n${redColor}[+] After that, configure your powerlevel10k.${endColor}" && read
+    echo -e "\n${redColor}[+] Proceed to logout and select bspwn.${endColor}" && read
     
 }
 
