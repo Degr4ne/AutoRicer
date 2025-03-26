@@ -1,6 +1,6 @@
 # AutoRicer
-I made this script for automatice the process installation of bspwm,sxhkd,picom and polybar adding my basics dotfiles.  
-The script is tested in Kali Linux 2022.4.  **Don't run as root**
+I made this script to automate the installation process of bspwm,sxhkd,picom and polybar adding my basics dotfiles.  
+The script is tested in Kali Linux 2025.1.  **Don't run as root**
 ## Recommendations
 * Run the script in a new .iso.
 * Before running the script take a snapshot of the machine.
