@@ -165,7 +165,7 @@ function config(){
     sudo cp $configFiles"/murz.rasi" /usr/share/rofi/themes/murz.rasi 
     mkdir -p ~/.config/rofi
     touch ~/.config/rofi/config.rasi
-    echo "@theme: \"/usr/share/rofi/themes/murz.rasi\"" >> ~/.config/rofi/config.rasi
+    echo "@theme \"/usr/share/rofi/themes/murz.rasi\"" >> ~/.config/rofi/config.rasi
     
     # vim color scheme
     cp $configFiles"/.vimrc" ~/
